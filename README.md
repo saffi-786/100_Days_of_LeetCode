@@ -6,6 +6,8 @@ DAY 01 - 1st JAN 2023
 
 1.1 - Strictly Palindromic Number  (Medium)
 1.2 - Queries on Number of Points Inside a Circle (Medium)
+1.3 - Number of Laser Beams in a Bank (Medium)
+1.4 - Word Pattern (Easy)
 --------------------------------------------------------------------------------------------------------------------------------------------------
 DAY 02 - 2nd JAN 2023
 
