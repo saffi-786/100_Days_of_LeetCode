@@ -11,7 +11,10 @@ DAY 01 - 1st JAN 2023
 --------------------------------------------------------------------------------------------------------------------------------------------------
 DAY 02 - 2nd JAN 2023
 
-
+2.1 - Detect Capital (Easy)
+2.2 - Minimum Operations to Make Array Equal (Medium)
+2.3 - Count Number of Distinct Integers After Reverse Operations (Medium)
+2.4 - Integer to Roman (Medium)
 --------------------------------------------------------------------------------------------------------------------------------------------------
 DAY 03 - 3rd JAN 2023
 
