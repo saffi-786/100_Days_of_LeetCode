@@ -1,0 +1,41 @@
+149. Max Points on a Line (Hard)
+
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
+
+ 
+
+Example 1:
+
+
+Input: points = [[1,1],[2,2],[3,3]]
+Output: 3
+
+Code :
+
+class Solution {
+    public int maxPoints(int[][] points) {
+        int ans=0;
+        for(int[] i:points){
+            HashMap<Double,Integer> h=new HashMap<>();
+            for(int[] j:points){
+
+                if(i==j)
+                continue;
+
+                double slope=0;
+                if(i[0]==j[0])
+                slope=0;
+                else if(i[1]==j[1])
+                slope=Double.POSITIVE_INFINITY;
+                else
+                slope=(j[1]-i[1])/(1.0*(j[0]-i[0]));
+
+                h.put(slope,1+h.getOrDefault(slope,0));
+                ans=Math.max(ans,h.get(slope));
+
+
+            }
+        }
+        return ans+1;
+    }
+}
