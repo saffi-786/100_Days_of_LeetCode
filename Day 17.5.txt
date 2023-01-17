@@ -1,0 +1,53 @@
+2487. Remove Nodes From Linked List (Medium)
+
+You are given the head of a linked list.
+
+Remove every node which has a node with a strictly greater value anywhere to the right side of it.
+
+Return the head of the modified linked list.
+
+ 
+
+Example 1:
+
+
+Input: head = [5,2,13,3,8]
+Output: [13,8]
+Explanation: The nodes that should be removed are 5, 2 and 3.
+- Node 13 is to the right of node 5.
+- Node 13 is to the right of node 2.
+- Node 8 is to the right of node 3.
+
+Code :
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        Stack<Integer> s=new Stack<>();
+        ListNode ptr=head.next;
+        s.push(head.val);
+        while(ptr!=null){
+            while(!s.isEmpty() && s.peek()<ptr.val){
+                    s.pop();
+                }
+            s.push(ptr.val);
+            ptr=ptr.next;
+        }
+        ListNode res=new ListNode(s.pop());
+        while(!s.isEmpty()){
+            ListNode curr=new ListNode(s.pop());
+            curr.next=res;
+            res=curr;
+        }
+        return res;
+    }
+}

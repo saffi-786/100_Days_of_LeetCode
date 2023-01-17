@@ -84,7 +84,11 @@ Day 16 - 16th JAN 2023
 --------------------------------------------------------------------------------------------------------------------------------------------------
 Day 17 - 17th JAN 2023
 
-
+17.1 - Convert Binary Number in a Linked List to Integer (Easy)
+17.2 - Middle of the Linked List (Easy)
+17.3 - Swapping Nodes in a Linked List (Medium)
+17.4 - Odd Even Linked List (Medium)
+17.5 - Remove Nodes From Linked List (Medium)
 --------------------------------------------------------------------------------------------------------------------------------------------------
 Day 18 - 18th JAN 2023
 
