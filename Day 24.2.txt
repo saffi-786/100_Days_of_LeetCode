@@ -1,0 +1,37 @@
+1513. Number of Substrings With Only 1s (Medium)
+
+Given a binary string s, return the number of substrings with all characters 1's. Since the answer may be too large, return it modulo 109 + 7.
+
+ 
+
+Example 1:
+
+Input: s = "0110111"
+Output: 9
+Explanation: There are 9 substring in total with only 1's characters.
+"1" -> 5 times.
+"11" -> 3 times.
+"111" -> 1 time.
+
+Code :
+
+class Solution {
+    public int numSub(String s) {
+        long k=0,ans=0;;
+        int z=(int)Math.pow(10,9)+7;
+        if(s.charAt(0)=='1')
+        k++;
+        for(int i=1;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                k++;
+            }
+            else{
+                ans+=k+(k*(k-1))/2;
+                k=0;
+            }
+        }
+        if(k>0)
+        ans+=k+(k*(k-1))/2;
+        return (int)(ans%z);
+    }
+}
