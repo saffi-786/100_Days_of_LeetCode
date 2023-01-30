@@ -1,0 +1,44 @@
+148. Sort List (Medium)
+
+
+Given the head of a linked list, return the list after sorting it in ascending order.
+
+ 
+
+Example 1:
+
+
+Input: head = [4,2,1,3]
+Output: [1,2,3,4]
+
+Code :
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode sortList(ListNode head) {
+        if(head==null || head.next==null)
+        return head;
+        ArrayList<Integer> a=new ArrayList<>();
+        while(head!=null){
+            a.add(head.val);
+            head=head.next;
+        }
+        Collections.sort(a);
+        ListNode res=new ListNode(a.get(0));
+        ListNode ptr=res;
+        for(int i=1;i<a.size();i++){
+            ptr.next=new ListNode(a.get(i));
+            ptr=ptr.next;
+        }
+        return res;
+    }
+}
