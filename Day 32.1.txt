@@ -1,0 +1,76 @@
+2047. Number of Valid Words in a Sentence (Easy)
+
+A sentence consists of lowercase letters ('a' to 'z'), digits ('0' to '9'), hyphens ('-'), punctuation marks ('!', '.', and ','), and spaces (' ') only. Each sentence can be broken down into one or more tokens separated by one or more spaces ' '.
+
+A token is a valid word if all three of the following are true:
+
+It only contains lowercase letters, hyphens, and/or punctuation (no digits).
+There is at most one hyphen '-'. If present, it must be surrounded by lowercase characters ("a-b" is valid, but "-ab" and "ab-" are not valid).
+There is at most one punctuation mark. If present, it must be at the end of the token ("ab,", "cd!", and "." are valid, but "a!b" and "c.," are not valid).
+Examples of valid words include "a-b.", "afad", "ba-c", "a!", and "!".
+
+Given a string sentence, return the number of valid words in sentence.
+
+ 
+
+Example 1:
+
+Input: sentence = "cat and  dog"
+Output: 3
+Explanation: The valid words in the sentence are "cat", "and", and "dog".
+
+Code :
+
+class Solution {
+    public int countValidWords(String sentence) {
+        sentence=sentence+" ";
+        String t="";
+        int ans=0;
+        for(int i=0;i<sentence.length();i++){
+            char c=sentence.charAt(i);
+            if(c!=' ')
+            t=t+c;
+            else{
+                if(t.length()==0)
+                continue;
+                if(t.length()==1 && (t.charAt(0)=='.' || t.charAt(0)==',' || t.charAt(0)=='!'))
+                {
+                    ans++;
+                    t="";
+                    continue;
+                }
+                boolean flag=false;
+                int k=0;
+                if(t.charAt(0)=='-' || t.charAt(t.length()-1)=='-'){
+                    t="";
+                    continue;
+                }
+                for(char j=0;j<t.length();j++){
+                    if(t.charAt(j)>=48 && t.charAt(j)<=57)
+                    {
+                        flag=true;
+                        break;
+                    }
+                    if((j!=t.length()-1) && (t.charAt(j)==',' || t.charAt(j)=='!' || t.charAt(j)=='.')){
+                        flag=true;
+                        break;
+                    }
+                    if(t.charAt(j)=='-' && !((t.charAt(j-1)>=97 && t.charAt(j-1)<=122) && (t.charAt(j+1)>=97 && t.charAt(j+1)<=122))){
+                        t="";
+                        flag=true;
+                        break;
+                    }
+                    if(t.charAt(j)=='-')
+                    k++;
+                }
+                t="";
+                if(flag || k>1)
+                continue;
+
+                ans++;
+                
+            }
+        }
+        return ans;
+    }
+}
