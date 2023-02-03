@@ -1,0 +1,44 @@
+125. Valid Palindrome (Easy)
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Code :
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        s=s.trim();
+        if(s.length()==0) return true;
+        String t="";
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+
+            if(c>=65 && c<=90)
+            t=t+(char)(c+32);
+
+            if(c>=97 && c<=122)
+            t=t+c;
+
+            if(c>=48 && c<=57)
+            t=t+c;
+        }
+
+        int start=0;
+        while(start<t.length()/2){
+            if(t.charAt(start)!=t.charAt(t.length()-start-1))
+            return false;
+
+            start++;
+        }
+        return true;
+    }
+}
