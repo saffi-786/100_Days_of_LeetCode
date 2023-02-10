@@ -1,0 +1,44 @@
+2299. Strong Password Checker II (Easy)
+
+A password is said to be strong if it satisfies all the following criteria:
+
+It has at least 8 characters.
+It contains at least one lowercase letter.
+It contains at least one uppercase letter.
+It contains at least one digit.
+It contains at least one special character. The special characters are the characters in the following string: "!@#$%^&*()-+".
+It does not contain 2 of the same character in adjacent positions (i.e., "aab" violates this condition, but "aba" does not).
+Given a string password, return true if it is a strong password. Otherwise, return false.
+
+ 
+
+Example 1:
+
+Input: password = "IloveLe3tcode!"
+Output: true
+Explanation: The password meets all the requirements. Therefore, we return true.
+
+Code :
+
+class Solution {
+    public boolean strongPasswordCheckerII(String password) {
+        if(password.length()<8)
+        return false;
+        int u=0,l=0,d=0,f=0;
+        String k="!@#$%^&*()-+";
+        for(int i=0;i<password.length();i++){
+            char c=password.charAt(i);
+            if(i!=0 && c==password.charAt(i-1))
+            return false;
+            else if(c>=65 && c<=90)
+            u++;
+            else if(c>=97 && c<=122)
+            l++;
+            else if(c>=48 && c<=57)
+            d++;
+            else if(k.indexOf(c)>=0)
+            f++;
+        }
+        return (u>0 && l>0 && d>0 && f>0);
+    }
+}
